@@ -1,4 +1,4 @@
-\chapter{Experiment}
+\chapter{App Overview}
 
 \par We carried out an experiment at California Polytechnic State University to test the efficacy of habit-based educational software. We created a web-based application called \textit{Polycommit} that was connected to 4 college classes: \textbf{Introduction to Computer Networks}, \textbf{Introduction to Computer Graphics}, \textbf{Introduction to Operating Systems}, and \textbf{Linear Analysis I}. These classes were selected because they covered subject matter that was easy to convert to online quizzes. For instance, one staple linear analysis problem is to find the determinant of a matrix (often a whole number), which is easy to input into an online form. In addition, I had taken these classes in recent quarters and was familiar with the course content.
 
@@ -16,7 +16,7 @@
 	\label{fig:onboarding1}
 \end{figure*}
 
-\par After clicking the login button, users are brought to the main Cal Poly login portal screen (See \textbf{\hyperref[fig:onboarding-portal]{Figure \ref*{fig:onboarding-portal}}}). Observant users will note that the callback URL points to \textbf{https://users.csc.calpoly.edu/\textasciitilde{}efiske/login.php}. This is because the Cal Poly authentication service only will successfully make an authentication callback to a website on Cal Poly ITS' whitelist. In order to enable Cal Poly login, we had to implement a PHP script on the Cal Poly Unix servers' \textbf{www} directory that redirected to the Cal Poly portal, then handled the response.
+\par After clicking the login button, users are brought to the main Cal Poly login portal screen. Observant users will note that the callback URL points to \newline \textbf{https://users.csc.calpoly.edu/\textasciitilde{}efiske/login.php}. This is because the Cal Poly authentication service only will successfully make an authentication callback to a website on Cal Poly ITS' whitelist. In order to enable Cal Poly login, we had to implement a PHP script on the Cal Poly Unix servers' \textbf{www} directory that redirected to the Cal Poly portal, then handled the response.
 
 \begin{figure*}[h]
 	\includegraphics[width=1.0\linewidth]{figures/onboarding-portal}
@@ -24,7 +24,7 @@
 	\label{fig:onboarding1}
 \end{figure*}
 
-\par The full process for authentication is visible in \textbf{\hyperref[fig:logindiagram]{Figure \ref*{fig:logindiagram}}}. The user is redirected to Cal Poly's portal, which returns a \textbf{ticket}. That ticket is then passed to the \textit{Polycommit} backend and verified via a HTTP call from the \textit{Polycommmit} server. Note that the ticket is only valid for the \textit{Polycommit} service; if a ticket is compromised, no user data is endangered and an attacker can not log in to any other Cal Poly-based service.
+\par The full process for authentication is visible in \textbf{\hyperref[fig:logindiagram]{Figure \ref*{fig:logindiagram}}}. The user is redirected to Cal Poly's portal, which returns a \textbf{ticket}. That ticket is then passed to the \textit{Polycommit} backend and verified via a HTTP call from the \textit{Polycommit} server. Note that the ticket is only valid for the \textit{Polycommit} service; if a ticket is compromised, no user data is endangered and an attacker can not log in to any other Cal Poly-based service.
 
 \par Once the ticket is verified on the backend, the user's session is created on the backend and the server responds with a session cookie.
 
@@ -66,7 +66,7 @@
 
 \par At the bottom of the challenge screen is a link to submit feedback about a question. Through this link, students are brought to a Google form where they can provide feedback about a particular question. The feedback form is viewable at \textbf{\hyperref[fig:polycommit4]{Figure \ref*{fig:polycommit4}}}.
 
-\par The question feedback form was not utilized as frequently as the other feedback forms. Only 2 responses came in through this form. Both those responses are visible in \textbf{\hyperref[appendix:question_feedback]{Appendix \ref*{appendix:question_feedback}}}.
+\par The question feedback form was not utilized as frequently as the other feedback forms. Only 2 responses came in through this form.
 
 \par Once the challenge is closed, students can see a list of their previous attempts along with the correct answer to the problem. Certain problems have their answers hidden; for instance, all Linear Analysis problems don't show their answers because many challenges on \textit{Polycommit} are directly from the assigned homework. Hiding the correct answer prevents students from quickly inputting a wrong answer to see the homework solutions. Additionally, if a question has received feedback as being confusing, an ``Explanation'' field provides detailed context about the answer the problem and potential pitfalls (See  \textbf{\hyperref[fig:polycommit5]{Figure \ref*{fig:polycommit5}}}).
 
@@ -85,7 +85,7 @@
 
 \begin{figure*}
 	\includegraphics{figures/pc-incorrect}
-	\caption{The view of a challenge once it has been answered incorrectly. The main message assures the user that it still counts for Commitment. A full explanation of the problem is under the list of the user's attempts.}
+	\caption{The view of a challenge once it has been answered incorrectly. The main message assures the user that it still counts for commitment. A full explanation of the problem is under the list of the user's attempts.}
 	\label{fig:polycommit5}
 \end{figure*}
 
@@ -153,11 +153,4 @@
 \subsection{Early Testing}
 \par Before the main experiment in Spring 2017 term, we ran a small dry run of the app to get a general feel for usability issues. The app was announced in CPE 464 in week 6, directly after the midterm. The main difference from the final iteration is the onboarding process. Instead of registering and logging in through the Cal Poly portal, students registered using an email address and had to click a link that was emailed to them to complete registration.
 
-\par We discovered that this onboarding process had an extremely high drop-off rate. Of the 10 people that visited the posted link, only 4 entered their email, and only 2 successfully completed registration. As such, it became a huge priority to reduce the number of steps a user had to complete to begin using the app. The Cal Poly authentication process described in \ref{calpolylogin} decreased the number of steps the user needed to take to enter the app, and thus gave a huge boost to user engagement.
-
-\subsection{Ongoing Feedback}
-\par Throughout the experiment, We received feedback from 16 different users consisting of bug reports and feature requests. A full list of the feedback we received is available in \textbf{\hyperref[appendix:emails]{Appendix \ref*{appendix:emails}}}
-
-%Throughout the duration of the experiment, I received a large amount of excellent feedback about the usability of \textit{Polycommit}. At the bottom of each page is a link
-%%TODO
-%TODO: Finish section on how I used user feedback to improve the app. Include emails from Polycommit folder.
+\par We discovered that this onboarding process had an extremely high drop-off rate. Of the 10 people that visited the posted link, only 4 entered their email, and only 2 successfully completed registration. As such, it became a huge priority to reduce the number of steps a user had to complete to begin using the app. The Cal Poly authentication process described above decreased the number of steps the user needed to take to enter the app, and thus gave a huge boost to user engagement.
